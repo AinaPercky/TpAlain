@@ -24,4 +24,7 @@ public class JoueurService {
         joueurRepository.deleteById(id);
      }
 
+    public Joueur getId(int idJoueur) {
+        return joueurRepository.findById(idJoueur).get();
+    }
 }

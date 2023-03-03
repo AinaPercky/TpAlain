@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" th:href="@{bootstrap.min.css}" />
+</head>
+<body>
+<h1>Liste de joueurs</h1><br>
+<a href="/nouveau">Créer un nouveu joueur</a>
+<table class="table">
+    <thead class="table-header">
+        <tr>
+            <th>ID</th>
+            <th>Nom</th>
+            <th>Equipe</th>
+            <th>Poste</th>
+        </tr>
+    </thead>
+    <tbody class="table-info table-active table-sub-heading-color">
+        <tr th:each="joueur : ${listJoueur}">
+            <td th:text="${joueur.idJoueur}">ID</td>
+            <td th:text="${joueur.nomJoueur}">Nom</td>
+            <td th:text="${joueur.equipeJoueur}">Equipe</td>
+            <td th:text="${joueur.posteJoueur}">Equipe</td>
+            <td>
+                <a th:href="@{'/edit/'+${joueur.idJoueur}}">[Modifier]</a>
+<!--                <a th:href="/@{'/edit/'+${joueur.idJoueur}}">[Modif]</a>-->
+                <a th:href="@{'/delete/'+${joueur.idJoueur}}">[Supprimer]</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+</body>
+</html>

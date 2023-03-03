@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" th:href="@{bootstrap.min.css}" />
+</head>
+<body>
+    <div>
+        <h1>Nouveau joueur</h1><br/>
+        <form class="form" th:action="@{/save}" th:object="${joueur}" method="post">
+            <table class="table row">
+                <tr class="table-header">
+                    <td>Nom</td>
+                    <td><input th:type="text" required="required" th:field="${joueur.nomJoueur}" /></td>
+                    <span th:if="${#fields.hasErrors('nomJoueur')}" th:errors="${joueur.nomJoueur}">nom complet erreur</span>
+                </tr>
+                <tr>
+                    <td>Equipe</td>
+                    <td><input th:type="text" th:field="${joueur.equipeJoueur}" /></td>
+                </tr>
+                <tr>
+                    <td>Poste</td>
+                    <td><input th:type="text" th:field="${joueur.posteJoueur}"/></td>
+                </tr>
+                <tr>
+                    <td colspan="2" ><button class="btn btn-primary"type="submit">Ajouter</button></td>
+                </tr>
+
+            </table>
+        </form>
+    </div>
+</body>
+</html>
